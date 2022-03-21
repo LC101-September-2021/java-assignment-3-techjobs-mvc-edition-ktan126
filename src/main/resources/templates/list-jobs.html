@@ -12,6 +12,45 @@
 
     <!-- TODO #1 - Use a loop to display job results in a table. -->
 
+
+    <th:block th:each="job : ${jobs}">
+        <table class="job-listing">
+            <tr >
+                <th >ID:</th>
+                <th th:text="${job.getId()}" style="font-size:x-small"></th>
+            </tr>
+            <tr>
+                <th>NAME:</th>
+                <th th:text="${job.getName()}" style="font-size:x-small" ></th>
+            </tr>
+            <tr>
+                <th>EMPLOYER:</th>
+                <th>
+                    <a th:href="@{/list/jobs(column=employer,value=${job.getEmployer()})}" th:text="${job.getEmployer()}" style="font-size:x-small" align="left"></a>
+                </th>
+            </tr>
+            <tr>
+                <th>LOCATION:</th>
+                <th>
+                    <a th:href="@{/list/jobs(column=location,value=${job.getLocation()})}" th:text="${job.getLocation()}" style="font-size:x-small" align="left"></a>
+                </th>
+            </tr>
+            <tr>
+                <th>POSITION TYPE:</th>
+                <th>
+                    <a th:href="@{/list/jobs(column=positionType,value=${job.getPositionType()})}" th:text="${job.getPositionType()}" style="font-size:x-small" align="left"></a>
+                </th>
+            </tr>
+            <tr>
+                <th>SKILL:</th>
+                <th>
+                    <a th:href="@{/list/jobs(column=coreCompetency,value=${job.getCoreCompetency()})}" th:text="${job.getCoreCompetency()}" style="font-size:x-small" align="left"></a>
+                </th>
+            </tr>
+        </table>
+    </th:block>
+
+
 </div>
 
 </body>
